@@ -1,21 +1,29 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdio.h>
 
-int main(){
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
-	vector<int> vec(1000,0);
-	for(int i=0;i<10;i++){
-		int a;
-		cin>>a;
-		vec[a%42]+=1;
+int main() {
+	int arr[20];
+	int a,cnt=0;
+	for(int i=0; i<10; i++)
+	{
+		scanf("%d",&a);	
+		arr[i] = a % 42;
 	}
-	int ans=0;
-	for(int i=0;i<1000;i++){
-		if(vec[i]>0){
-			ans++;
+	for(int i=0; i<10; i++)
+	{
+		int num=0;
+		for(int j=i+1; j<10; j++)//여기 아까 너가 i++로 해놨고 j는 0으ㅗ로 하고 j<i로 해 왜냐하면 
+	
+		{
+			if(arr[i] == arr[j])
+			{
+				num++;
+			}	
+		}
+		if(num==0){
+		
+		cnt++;
 		}
 	}
-	cout<<ans;
+	printf("%d",cnt);
 	return 0;
 }
