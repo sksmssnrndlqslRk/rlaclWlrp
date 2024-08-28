@@ -6,35 +6,35 @@ int main(){
     cin.tie(0);
     int n;
     cin>>n;
-    vector<int> vec;
+    stack<int> stk;
     for(int i=0;i<n;i++){
         int a;
         string b;
         cin>>b;
         if(b=="push"){
             cin>>a;
-            vec.push_back(a);
+            stk.push(a);
         }
         else if(b=="pop"){
-            if(vec.empty()) cout<<-1;
+            if(stk.empty()) cout<<-1;
             else {
-                cout<<vec.back();
-                vec.pop_back();
+                cout<<stk.top();
+                stk.pop();
             }
             cout<<"\n";
             
         }
         else if(b=="size"){
-            cout<<vec.size();
+            cout<<stk.size();
             cout<<"\n";
         }
         else if(b=="empty"){
-            cout<<vec.empty();
+            cout<<stk.empty();
             cout<<"\n";
         }
         else if(b=="top"){
-            if(vec.empty()) cout<<-1;
-            else cout<<vec.back();
+            if(stk.empty()) cout<<-1;
+            else cout<<stk.top();
             cout<<"\n";
         }
         
