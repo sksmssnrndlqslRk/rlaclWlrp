@@ -1,5 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
+vector<int> vec1;
+int lb(int n){
+    int a=0,b=vec1.size();
+    while (a<b) {
+        int mid=(a+b)/2;
+        if (vec1[mid]<n) {
+            a=mid+1;
+        } 
+        else {
+            b=mid;
+        }
+    }
+    return a;
+}
+
+int ub(int n) {
+    int a=0,b=vec1.size();
+    while (a<b) {
+        int mid=(a+b)/2;
+        if (vec1[mid]<=n) {
+            a = mid+1;
+        } 
+        else{
+            b=mid;
+        }
+    }
+    return a;
+}
+
+int ho(int n){
+    return ub(n)-lb(n);
+}
 
 int main(){
     ios_base::sync_with_stdio(0);
@@ -7,20 +39,18 @@ int main(){
     
     int n,m;
     cin>>n;
-    unordered_map<int,int> chuu;
     
     for(int i=0;i<n;i++){
-        int a;
-        cin>>a;
-        chuu[a]++;
+        int q;
+        cin>>q;
+        vec1.push_back(q);
     }
+    sort(vec1.begin(),vec1.end());
     cin>>m;
     for(int i=0;i<m;i++){
         int a;
         cin>>a;
-        cout<<chuu[a]<<" ";
+        cout<<ho(a)<<" ";
     }
-    
-    
     return 0;
 }
